@@ -15,45 +15,44 @@ import drivers.CategoryB;
 import drivers.CategoryC;
 import drivers.CategoryD;
 import drivers.Driver;
-import transport.Bus;
-import transport.PassengerCar;
-import transport.Transport;
-import transport.Truck;
+import transport.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Bus[] bus = new Bus[4];
-        Bus huge = new Bus("Man", "1212", 220);
-        Bus big = new Bus("Scania", "X13", 200);
-        Bus middle = new Bus("Mercedes", "GLS", 180);
-        Bus small = new Bus("Ford", "DNN12", 150);
+        Bus huge = new Bus("Man", "1212", 220, "USA", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
+        Bus big = new Bus("Scania", "1212", 220, "Germany", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);;
+        Bus middle = new Bus("Mercedes", "1212", 220, "Germany", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);;
+        Bus small = new Bus("Ford", "1212", 220, "USA", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);;
         bus[0] = huge;
         bus[1] = big;
         bus[2] = middle;
         bus[3] = small;
 
+
+
         Truck[] truck = new Truck[4];
-        Truck one = new Truck("Volvo", "AM21", 350);
-        Truck two = new Truck("Volvo", "AS33", 366);
-        Truck three = new Truck("Mercedes", "GLR", 468);
-        Truck four = new Truck("Kamaz", "1144", 420);
+        Truck one = new Truck("Volvo", "AM21", 350, "Germany", "white", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.VAN);
+        Truck two = new Truck("Volvo", "GGR", 333, "Germany", "white", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
+        Truck three = new Truck("Mercedes", "AM21", 350, "Germany", "yellow", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
+        Truck four = new Truck("Kamaz", "L2", 350, "Russia", "green", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
         truck[0] = one;
         truck[1] = two;
         truck[2] = three;
         truck[3] = four;
 
+
         PassengerCar[] passengerCar = new PassengerCar[4];
-        PassengerCar black = new PassengerCar("Ford", "Focus", 120);
-        PassengerCar red = new PassengerCar("MiniCooper", "S", 280);
-        PassengerCar white = new PassengerCar("Mazda", "CX", 290);
-        PassengerCar silver = new PassengerCar("Lada", "Largus", 98);
+        PassengerCar black = new PassengerCar("Ford", "AM21", 120, "USA", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
+        PassengerCar red = new PassengerCar("MiniCopper", "3343", 320, "Germany", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
+        PassengerCar white = new PassengerCar("Mazda", "FHJ", 350, "Japan", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
+        PassengerCar silver = new PassengerCar("Lada", "Largus", 350, "Russia", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
         passengerCar[0] = black;
         passengerCar[1] = red;
         passengerCar[2] = white;
         passengerCar[3] = silver;
-
 
         four.pitStop();
         white.bestTimeOfCircle();
@@ -66,6 +65,7 @@ public class Main {
         CategoryD alex = new CategoryD("Alekseev Aleksey Alexeevich", "D", 14, middle);
 
         ivan.drive();
+
 
 
 
@@ -203,5 +203,4 @@ public class Main {
             System.out.println(track[i]);
         }
     }
-//
 }
