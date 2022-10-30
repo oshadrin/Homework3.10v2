@@ -4,10 +4,8 @@ import java.util.SortedMap;
 
 public class PassengerCar extends Transport implements Abusers {
 
-    public PassengerCar(String brand, String model, Integer productionYear, String productionCountry, String color, String typeOfFuel, Capacity capacity, LoadCapacity loadCapacity, BodyType bodyType) {
+    public PassengerCar(String brand, String model, Integer productionYear, String productionCountry, String color, String typeOfFuel, BodyType bodyType) {
         super(brand, model, productionYear, productionCountry, color, typeOfFuel);
-        this.capacity = capacity;
-        this.loadCapacity = loadCapacity;
         this.bodyType = bodyType;
     }
 

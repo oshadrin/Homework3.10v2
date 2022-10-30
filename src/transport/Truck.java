@@ -6,11 +6,9 @@ public class Truck extends Transport {
     private LoadCapacity loadCapacity;
     private BodyType bodyType;
 
-    public Truck(String brand, String model, Integer productionYear, String productionCountry, String color, String typeOfFuel, Capacity capacity, LoadCapacity loadCapacity, BodyType bodyType) {
+    public Truck(String brand, String model, Integer productionYear, String productionCountry, String color, String typeOfFuel, LoadCapacity loadCapacity) {
         super(brand, model, productionYear, productionCountry, color, typeOfFuel);
-        this.capacity = capacity;
         this.loadCapacity = loadCapacity;
-        this.bodyType = bodyType;
     }
 
     public Capacity getCapacity() {

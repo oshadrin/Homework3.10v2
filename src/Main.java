@@ -22,10 +22,10 @@ public class Main {
     public static void main(String[] args) {
 
         Bus[] bus = new Bus[4];
-        Bus huge = new Bus("Man", "1212", 220, "USA", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
-        Bus big = new Bus("Scania", "1212", 220, "Germany", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);;
-        Bus middle = new Bus("Mercedes", "1212", 220, "Germany", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);;
-        Bus small = new Bus("Ford", "1212", 220, "USA", "black", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);;
+        Bus huge = new Bus("Man", "1212", 220, "USA", "black", "gas", Capacity.VARY_SMALL);
+        Bus big = new Bus("Scania", "1212", 220, "Germany", "black", "gas", Capacity.VERY_LARGE);;
+        Bus middle = new Bus("Mercedes", "1212", 220, "Germany", "black", "gas", Capacity.VARY_SMALL);;
+        Bus small = new Bus("Ford", "1212", 220, "USA", "black", "gas", Capacity.MEDIUM);;
         bus[0] = huge;
         bus[1] = big;
         bus[2] = middle;
@@ -34,10 +34,10 @@ public class Main {
 
 
         Truck[] truck = new Truck[4];
-        Truck one = new Truck("Volvo", "AM21", 350, "Germany", "white", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.VAN);
-        Truck two = new Truck("Volvo", "GGR", 333, "Germany", "white", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
-        Truck three = new Truck("Mercedes", "AM21", 350, "Germany", "yellow", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
-        Truck four = new Truck("Kamaz", "L2", 350, "Russia", "green", "gas", Capacity.VARY_SMALL, LoadCapacity.N1, BodyType.MINIVAN);
+        Truck one = new Truck("Volvo", "AM21", 350, "Germany", "white", "gas", LoadCapacity.N1);
+        Truck two = new Truck("Volvo", "GGR", 333, "Germany", "white", "gas", LoadCapacity.N2);
+        Truck three = new Truck("Mercedes", "AM21", 350, "Germany", "yellow", "gas", LoadCapacity.N1);
+        Truck four = new Truck("Kamaz", "L2", 350, "Russia", "green", "gas", LoadCapacity.N3);
         truck[0] = one;
         truck[1] = two;
         truck[2] = three;
@@ -45,10 +45,10 @@ public class Main {
 
 
         PassengerCar[] passengerCar = new PassengerCar[4];
-        PassengerCar black = new PassengerCar("Ford", "AM21", 120, "USA", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
-        PassengerCar red = new PassengerCar("MiniCopper", "3343", 320, "Germany", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
-        PassengerCar white = new PassengerCar("Mazda", "FHJ", 350, "Japan", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
-        PassengerCar silver = new PassengerCar("Lada", "Largus", 350, "Russia", "white", "gas", Capacity.MEDIUM, LoadCapacity.N1, BodyType.SEDAN);
+        PassengerCar black = new PassengerCar("Ford", "AM21", 120, "USA", "white", "gas", BodyType.SEDAN);
+        PassengerCar red = new PassengerCar("MiniCopper", "3343", 320, "Germany", "white", "gas", BodyType.SEDAN);
+        PassengerCar white = new PassengerCar("Mazda", "FHJ", 350, "Japan", "white", "gas", BodyType.CROSSOVER);
+        PassengerCar silver = new PassengerCar("Lada", "Largus", 350, "Russia", "white", "gas", BodyType.HATCHBACK);
         passengerCar[0] = black;
         passengerCar[1] = red;
         passengerCar[2] = white;
@@ -195,12 +195,15 @@ public class Main {
     public static void printTransport(Bus[] bus, Truck[] track, PassengerCar[] passengerCars) {
         for (int i = 0; i < bus.length; i++) {
             System.out.println(bus[i]);
+            bus[i].printType();
         }
         for (int i = 0; i < track.length; i++) {
             System.out.println(track[i]);
+            track[i].printType();
         }
         for (int i = 0; i < track.length; i++) {
-            System.out.println(track[i]);
+            System.out.println(passengerCars[i]);
+            passengerCars[i].printType();
         }
     }
 }
