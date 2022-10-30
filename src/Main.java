@@ -15,45 +15,45 @@ import drivers.CategoryB;
 import drivers.CategoryC;
 import drivers.CategoryD;
 import drivers.Driver;
-import transport.Bus;
-import transport.PassengerCar;
-import transport.Transport;
-import transport.Truck;
+import login.Data;
+import transport.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Bus[] bus = new Bus[4];
-        Bus huge = new Bus("Man", "1212", 220);
-        Bus big = new Bus("Scania", "X13", 200);
-        Bus middle = new Bus("Mercedes", "GLS", 180);
-        Bus small = new Bus("Ford", "DNN12", 150);
+        Bus huge = new Bus("Man", "1212", 220, "USA", "black", "gas", Capacity.VARY_SMALL);
+        Bus big = new Bus("Scania", "1212", 220, "Germany", "black", "gas", Capacity.VERY_LARGE);;
+        Bus middle = new Bus("Mercedes", "1212", 220, "Germany", "black", "gas", Capacity.VARY_SMALL);;
+        Bus small = new Bus("Ford", "1212", 220, "USA", "black", "gas", Capacity.MEDIUM);;
         bus[0] = huge;
         bus[1] = big;
         bus[2] = middle;
         bus[3] = small;
 
+
+
         Truck[] truck = new Truck[4];
-        Truck one = new Truck("Volvo", "AM21", 350);
-        Truck two = new Truck("Volvo", "AS33", 366);
-        Truck three = new Truck("Mercedes", "GLR", 468);
-        Truck four = new Truck("Kamaz", "1144", 420);
+        Truck one = new Truck("Volvo", "AM21", 350, "Germany", "white", "gas", LoadCapacity.N1);
+        Truck two = new Truck("Volvo", "GGR", 333, "Germany", "white", "gas", LoadCapacity.N2);
+        Truck three = new Truck("Mercedes", "AM21", 350, "Germany", "yellow", "gas", LoadCapacity.N1);
+        Truck four = new Truck("Kamaz", "L2", 350, "Russia", "green", "gas", LoadCapacity.N3);
         truck[0] = one;
         truck[1] = two;
         truck[2] = three;
         truck[3] = four;
 
+
         PassengerCar[] passengerCar = new PassengerCar[4];
-        PassengerCar black = new PassengerCar("Ford", "Focus", 120);
-        PassengerCar red = new PassengerCar("MiniCooper", "S", 280);
-        PassengerCar white = new PassengerCar("Mazda", "CX", 290);
-        PassengerCar silver = new PassengerCar("Lada", "Largus", 98);
+        PassengerCar black = new PassengerCar("Ford", "AM21", 120, "USA", "white", "gas", BodyType.SEDAN);
+        PassengerCar red = new PassengerCar("MiniCopper", "3343", 320, "Germany", "white", "gas", BodyType.SEDAN);
+        PassengerCar white = new PassengerCar("Mazda", "FHJ", 350, "Japan", "white", "gas", BodyType.CROSSOVER);
+        PassengerCar silver = new PassengerCar("Lada", "Largus", 350, "Russia", "white", "gas", BodyType.HATCHBACK);
         passengerCar[0] = black;
         passengerCar[1] = red;
         passengerCar[2] = white;
         passengerCar[3] = silver;
-
 
         four.pitStop();
         white.bestTimeOfCircle();
@@ -67,6 +67,17 @@ public class Main {
 
         ivan.drive();
 
+//task1 Исключения------------------------------------------------------------------------------------------------------
+        boolean success=  Data.checkInput("login", "pass123", "pass123");
+        if (success) {
+            System.out.println("Login/pass: Данные введены правильно");
+        } else {
+            System.out.println("Login/pass: Данные введены неверно");
+        }
+//task1 Исключения------------------------------------------------------------------------------------------------------
+//task2 Исключения------------------------------------------------------------------------------------------------------
+        doCheckCar(bus, truck, passengerCar);
+//task2 Исключения------------------------------------------------------------------------------------------------------
 
 
 //        Flower[] arr = new Flower[4];
@@ -195,13 +206,48 @@ public class Main {
     public static void printTransport(Bus[] bus, Truck[] track, PassengerCar[] passengerCars) {
         for (int i = 0; i < bus.length; i++) {
             System.out.println(bus[i]);
+            bus[i].printType();
         }
         for (int i = 0; i < track.length; i++) {
             System.out.println(track[i]);
+            track[i].printType();
         }
         for (int i = 0; i < track.length; i++) {
-            System.out.println(track[i]);
+            System.out.println(passengerCars[i]);
+            passengerCars[i].printType();
         }
     }
-//
+//task2 Исключения------------------------------------------------------------------------------------------------------
+    public static void doCheckCar(Bus[] bus, Truck[] truck, PassengerCar[] passengerCars) {
+        for (int i = 0; i < bus.length; i++) {
+            if(!bus[i].doCheckCar()) {
+                try {
+                    throw new RuntimeException("Автобус не прошел диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+        }
+        for (int i = 0; i < truck.length; i++) {
+            if(!truck[i].doCheckCar()) {
+                try {
+                    throw new RuntimeException("Грузовик не прошел диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        for (int i = 0; i < passengerCars.length; i++) {
+            if(!passengerCars[i].doCheckCar()) {
+                try {
+                    throw new RuntimeException("Автобус не прошел диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
+//task2 Исключения------------------------------------------------------------------------------------------------------
 }

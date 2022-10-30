@@ -6,22 +6,21 @@ public abstract class Transport implements Abusers {
 
     private int engineCapasity;
 
-//    private Integer productionYear;
-//    private String productionCountry;
-//    private String color;
-//    private int maxSpeed;
-//    private String typeOfFuel;
+    private Integer productionYear;
+    private String productionCountry;
+    private String color;
+    private int maxSpeed;
+    private String typeOfFuel;
 
-//    public abstract void refill();
+    public abstract void refill();
 
     public Transport(
             String brand,
             String model,
-//            Integer productionYear,
-//            String productionCountry,
-//            String color,
-//            String typeOfFuel
-            int engineCapasity
+            Integer productionYear,
+            String productionCountry,
+            String color,
+            String typeOfFuel
     ) {
                 if (brand.isBlank()) {
                     System.out.println("поле не должно быть пустым");
@@ -36,15 +35,19 @@ public abstract class Transport implements Abusers {
 
         this.engineCapasity = engineCapasity;
 
-//        this.productionYear = productionYear;
-//        this.productionCountry = productionCountry;
-//        this.color = color;
-//        this.typeOfFuel = typeOfFuel;
+        this.productionYear = productionYear;
+        this.productionCountry = productionCountry;
+        this.color = color;
+        this.typeOfFuel = typeOfFuel;
     }
 
     public abstract void startMovement();
 
     public abstract void stopMovement();
+
+    public abstract void printType();
+
+    public abstract boolean doCheckCar();
 
 
 
@@ -67,21 +70,21 @@ public abstract class Transport implements Abusers {
             this.engineCapasity = engineCapasity;
         }
 
-    //    public void setColor(String color) {
-//        if(this.color == null || this.color.isEmpty()){
-//            this.color = "Должно быть заполнено";
-//        } else {
-//            this.color = color;
-//        }
-//    }
+        public void setColor(String color) {
+        if(this.color == null || this.color.isEmpty()){
+            this.color = "Должно быть заполнено";
+        } else {
+            this.color = color;
+        }
+    }
 
-//    public void setMaxSpeed(int maxSpeed) {
-//            this.maxSpeed = maxSpeed;
-//    }
-//
-//    public String getTypeOfFuel() {
-//        return typeOfFuel;
-//    }
+    public void setMaxSpeed(int maxSpeed) {
+            this.maxSpeed = maxSpeed;
+    }
+
+    public String getTypeOfFuel() {
+        return typeOfFuel;
+    }
 
     public String getBrand() {
         return brand;
@@ -95,19 +98,19 @@ public abstract class Transport implements Abusers {
         return engineCapasity;
     }
 
-//    public Integer getProductionYear() {
-//        return productionYear;
-//    }
-//
-//    public String getProductionCountry() {
-//        return productionCountry;
-//    }
-//
-//    public String getColor() {
-//        return color;
-//    }
-//
-//    public int getMaxSpeed() {
-//        return maxSpeed;
-//    }
+    public Integer getProductionYear() {
+        return productionYear;
+    }
+
+    public String getProductionCountry() {
+        return productionCountry;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
 }
