@@ -54,6 +54,12 @@ public class Bus extends Transport{
     }
 
     @Override
+    public boolean doCheckCar() {
+        System.out.println("Автобус: " + getBrand() + " " + getModel() + " в диагностике не нуждается");
+        return true;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Въезд на пит-стоп (автобус)");
     }
@@ -72,6 +78,8 @@ public class Bus extends Transport{
     public String toString() {
         return getBrand() + " " + getModel() + " " + getEngineCapasity();
     }
+
+
 
 }
 

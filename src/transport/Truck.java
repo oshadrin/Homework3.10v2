@@ -43,6 +43,12 @@ public class Truck extends Transport {
     }
 
     @Override
+    public boolean doCheckCar() {
+        System.out.println("Грузовик " + getBrand() + " проходит диагностику");
+        return true;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Въезд на пит-стоп (грузовик)");
     }

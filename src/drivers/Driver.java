@@ -14,7 +14,7 @@ public class Driver<T extends Transport & Abusers> {
         this.fullName = fullName;
         this.license = license;
         this.experience = experience;
-        this.car = car;
+        setCar(car);
     }
 
 
@@ -63,6 +63,9 @@ public class Driver<T extends Transport & Abusers> {
     }
 
     public void setCar(T car) {
+        if(car == null) {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        }
         this.car = car;
     }
 }

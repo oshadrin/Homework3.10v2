@@ -47,6 +47,8 @@ public abstract class Transport implements Abusers {
 
     public abstract void printType();
 
+    public abstract boolean doCheckCar();
+
 
 
     public void setBrand(String brand) {

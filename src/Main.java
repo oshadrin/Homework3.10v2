@@ -15,6 +15,7 @@ import drivers.CategoryB;
 import drivers.CategoryC;
 import drivers.CategoryD;
 import drivers.Driver;
+import login.Data;
 import transport.*;
 
 public class Main {
@@ -66,7 +67,17 @@ public class Main {
 
         ivan.drive();
 
-
+//task1 Исключения------------------------------------------------------------------------------------------------------
+        boolean success=  Data.checkInput("login", "pass123", "pass123");
+        if (success) {
+            System.out.println("Login/pass: Данные введены правильно");
+        } else {
+            System.out.println("Login/pass: Данные введены неверно");
+        }
+//task1 Исключения------------------------------------------------------------------------------------------------------
+//task2 Исключения------------------------------------------------------------------------------------------------------
+        doCheckCar(bus, truck, passengerCar);
+//task2 Исключения------------------------------------------------------------------------------------------------------
 
 
 //        Flower[] arr = new Flower[4];
@@ -206,4 +217,37 @@ public class Main {
             passengerCars[i].printType();
         }
     }
+//task2 Исключения------------------------------------------------------------------------------------------------------
+    public static void doCheckCar(Bus[] bus, Truck[] truck, PassengerCar[] passengerCars) {
+        for (int i = 0; i < bus.length; i++) {
+            if(!bus[i].doCheckCar()) {
+                try {
+                    throw new RuntimeException("Автобус не прошел диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+
+            }
+        }
+        for (int i = 0; i < truck.length; i++) {
+            if(!truck[i].doCheckCar()) {
+                try {
+                    throw new RuntimeException("Грузовик не прошел диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+        for (int i = 0; i < passengerCars.length; i++) {
+            if(!passengerCars[i].doCheckCar()) {
+                try {
+                    throw new RuntimeException("Автобус не прошел диагностику");
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
+//task2 Исключения------------------------------------------------------------------------------------------------------
 }

@@ -72,4 +72,9 @@ public class PassengerCar extends Transport implements Abusers {
             System.out.println("Зарядка электромобиля");
         }
     }
+    @Override
+    public boolean doCheckCar() {
+        System.out.println("Легковой автомобиль " + getBrand() + " проходит диагностику");
+        return true;
+    }
 }

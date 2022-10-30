@@ -102,6 +102,21 @@
 //        this.seasonTires = !this.seasonTires;
 //    }
 //
+//    @Override
+//    public void pitStop() {
+//
+//    }
+//
+//    @Override
+//    public void bestTimeOfCircle() {
+//
+//    }
+//
+//    @Override
+//    public void maxSpeed() {
+//
+//    }
+//
 //
 //    public static class Key {
 //        private boolean remoteStart;
