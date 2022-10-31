@@ -3,8 +3,7 @@ package transport;
 public class Bus extends Transport{
 
     private Capacity capacity;
-    private LoadCapacity loadCapacity;
-    private BodyType bodyType;
+
 
 
     @Override
@@ -24,14 +23,6 @@ public class Bus extends Transport{
 
     public Capacity getCapacity() {
         return capacity;
-    }
-
-    public LoadCapacity getLoadCapacity() {
-        return loadCapacity;
-    }
-
-    public BodyType getBodyType() {
-        return bodyType;
     }
 
     @Override

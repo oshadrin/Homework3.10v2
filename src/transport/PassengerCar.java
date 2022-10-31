@@ -8,18 +8,7 @@ public class PassengerCar extends Transport implements Abusers {
         super(brand, model, productionYear, productionCountry, color, typeOfFuel);
         this.bodyType = bodyType;
     }
-
-    private Capacity capacity;
-    private LoadCapacity loadCapacity;
     private BodyType bodyType;
-
-    public Capacity getCapacity() {
-        return capacity;
-    }
-
-    public LoadCapacity getLoadCapacity() {
-        return loadCapacity;
-    }
 
     public BodyType getBodyType() {
         return bodyType;
