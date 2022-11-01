@@ -30,7 +30,7 @@ public class Truck extends Transport {
         if(loadCapacity == null){
             System.out.println("Необходимо указать данные по авто");
         } else {
-            System.out.println("Тип авто: " + loadCapacity);
+            System.out.println("Тип авто: " + loadCapacity + " " + loadCapacity.getDescription());
         }
     }
 
