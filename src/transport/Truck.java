@@ -2,17 +2,25 @@ package transport;
 
 public class Truck extends Transport {
 
-
+    private Capacity capacity;
     private LoadCapacity loadCapacity;
-
+    private BodyType bodyType;
 
     public Truck(String brand, String model, Integer productionYear, String productionCountry, String color, String typeOfFuel, LoadCapacity loadCapacity) {
         super(brand, model, productionYear, productionCountry, color, typeOfFuel);
         this.loadCapacity = loadCapacity;
     }
 
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
     public LoadCapacity getLoadCapacity() {
         return loadCapacity;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
     }
 
     @Override
@@ -30,7 +38,7 @@ public class Truck extends Transport {
         if(loadCapacity == null){
             System.out.println("Необходимо указать данные по авто");
         } else {
-            System.out.println("Тип авто: " + loadCapacity);
+            System.out.println("Тип авто: " + loadCapacity + " " + loadCapacity.getDescription());
         }
     }
 
