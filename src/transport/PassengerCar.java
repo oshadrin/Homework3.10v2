@@ -4,8 +4,14 @@ import java.util.SortedMap;
 
 public class PassengerCar extends Transport implements Abusers {
 
-    public PassengerCar(String brand, String model, int engineCapasity) {
-        super(brand, model, engineCapasity);
+    public PassengerCar(String brand, String model, Integer productionYear, String productionCountry, String color, String typeOfFuel, BodyType bodyType) {
+        super(brand, model, productionYear, productionCountry, color, typeOfFuel);
+        this.bodyType = bodyType;
+    }
+    private BodyType bodyType;
+
+    public BodyType getBodyType() {
+        return bodyType;
     }
 
     @Override
@@ -16,6 +22,15 @@ public class PassengerCar extends Transport implements Abusers {
     @Override
     public void stopMovement() {
         System.out.println("Остановка легкового автомобиля");
+    }
+
+    @Override
+    public void printType() {
+        if(bodyType == null){
+            System.out.println("Необходимо указать данные по авто");
+        } else {
+            System.out.println("Тип авто: " + bodyType);
+        }
     }
 
     @Override
@@ -36,5 +51,14 @@ public class PassengerCar extends Transport implements Abusers {
     @Override
     public String toString() {
         return getBrand() + " " + getModel() + " " + getEngineCapasity();
+    }
+
+    @Override
+    public void refill() {
+        if (getTypeOfFuel().equals("gas")){
+            System.out.println("Заправка бензином");
+        } else {
+            System.out.println("Зарядка электромобиля");
+        }
     }
 }
