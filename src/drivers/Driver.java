@@ -68,4 +68,9 @@ public class Driver<T extends Transport & Abusers> {
         }
         this.car = car;
     }
+
+    @Override
+    public String toString() {
+        return getFullName();
+    }
 }

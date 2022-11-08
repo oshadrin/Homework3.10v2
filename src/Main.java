@@ -18,6 +18,8 @@ import drivers.Driver;
 import login.Data;
 import transport.*;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -63,6 +65,7 @@ public class Main {
 
         CategoryB ivan = new CategoryB("Ivanov Ivan Ivanovich", "B", 12, black);
         CategoryC petr = new CategoryC("Petrov Petr Petrovich", "C", 22, four);
+        CategoryC max = new CategoryC("Petrov Maksim Petrovich", "C", 22, four);
         CategoryD alex = new CategoryD("Alekseev Aleksey Alexeevich", "D", 14, middle);
 
         ivan.drive();
@@ -78,6 +81,42 @@ public class Main {
 //task2 Исключения------------------------------------------------------------------------------------------------------
         doCheckCar(bus, truck, passengerCar);
 //task2 Исключения------------------------------------------------------------------------------------------------------
+//task1 Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
+
+        Sponsors gasprom = new Sponsors("Газпром", 1000000);
+        Sponsors tinkof = new Sponsors("Тинькоф", 500000);
+        Sponsors potanin = new Sponsors("Потанин", 800000);
+        Sponsors baltika = new Sponsors("Балтика", 4000000);
+
+        Mechanic vasya = new Mechanic("Вася", "Пупкин", "Ремонт", "Пассажирские");
+        Mechanic vanya = new Mechanic("Ваня", "Петров", "Ремонт", "Пассажирские");
+        Mechanic yura = new Mechanic("Юра", "Сидоров", "Ремонт", "Грузовые");
+        Mechanic vasya2 = new Mechanic("Вася", "Соколов", "Ремонт", "Грузовые");
+        Mechanic petya = new Mechanic("Петр", "Ефимов", "Ремонт", "Автобусы");
+        Mechanic masha = new Mechanic("Маша", "Соколова", "Ремонт", "Автобусы");
+
+
+
+        black.addSponsor(gasprom);
+        black.addSponsor(potanin);
+        black.addDriver(petr);
+        black.addMechanic(vanya);
+        black.addMechanic(vanya);
+
+        red.addSponsor(tinkof);
+        red.addSponsor(baltika);
+        red.addSponsor(potanin);
+        red.addDriver(max);
+        red.addMechanic(vanya);
+        red.addMechanic(vanya);
+
+
+        black.carInfo();
+        red.carInfo();
+        }
+
+//task1 Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
+
 
 
 //        Flower[] arr = new Flower[4];
@@ -168,7 +207,7 @@ public class Main {
 //        }
 //
 //        unicHerbivores(herbivores);
-    }
+//    }
 
 //    public static void unicHerbivores(Herbivores[] herbivores) {
 //

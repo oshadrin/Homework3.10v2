@@ -1,5 +1,10 @@
 package transport;
 
+import drivers.Driver;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport implements Abusers {
     private String brand;
     private String model;
@@ -13,6 +18,20 @@ public abstract class Transport implements Abusers {
     private String typeOfFuel;
 
     public abstract void refill();
+
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsors<?>> sponsors = new ArrayList<>();
+
+    public void addMechanic(Mechanic<?> mechanic) {
+        mechanics.add(mechanic);
+    }
+    public void addSponsor(Sponsors<?> sponsor) {
+        sponsors.add(sponsor);
+    }
+    public void addDriver(Driver<?> driver) {
+        drivers.add(driver);
+    }
 
     public Transport(
             String brand,
@@ -39,6 +58,7 @@ public abstract class Transport implements Abusers {
         this.productionCountry = productionCountry;
         this.color = color;
         this.typeOfFuel = typeOfFuel;
+
     }
 
     public abstract void startMovement();
@@ -113,4 +133,24 @@ public abstract class Transport implements Abusers {
     public int getMaxSpeed() {
         return maxSpeed;
     }
+
+    public List<Driver<?>> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
+
+    public List<Sponsors<?>> getSponsors() {
+        return sponsors;
+    }
+
+    public void carInfo(){
+        System.out.println("Автомобиль: " + getBrand() + " " + getModel());
+        System.out.println("Водитель: " + getDrivers());
+        System.out.println("Спонсор: " + getSponsors());
+        System.out.println("Механник: " + getMechanics());
+    }
+
 }
