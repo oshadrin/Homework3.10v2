@@ -101,22 +101,25 @@ public class Main {
         black.addSponsor(potanin);
         black.addDriver(petr);
         black.addMechanic(vanya);
-        black.addMechanic(vanya);
+        black.addMechanic(vasya);
 
         red.addSponsor(tinkof);
         red.addSponsor(baltika);
         red.addSponsor(potanin);
         red.addDriver(max);
         red.addMechanic(vanya);
-        red.addMechanic(vanya);
+        red.addMechanic(vasya);
 
 
         black.carInfo();
         red.carInfo();
+
+        ServiceStation serviceStation = new ServiceStation();
+//        serviceStation.addPassengerCar();
+//        serviceStation.addTruck();
+        serviceStation.service();
         }
-
 //task1 Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
-
 
 
 //        Flower[] arr = new Flower[4];

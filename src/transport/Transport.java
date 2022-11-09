@@ -147,6 +147,7 @@ public abstract class Transport implements Abusers {
     }
 
     public void carInfo(){
+        System.out.println("---------------------------------------");
         System.out.println("Автомобиль: " + getBrand() + " " + getModel());
         System.out.println("Водитель: " + getDrivers());
         System.out.println("Спонсор: " + getSponsors());
