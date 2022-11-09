@@ -81,7 +81,7 @@ public class Main {
 //task2 Исключения------------------------------------------------------------------------------------------------------
         doCheckCar(bus, truck, passengerCar);
 //task2 Исключения------------------------------------------------------------------------------------------------------
-//task1 Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
+// Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
 
         Sponsors gasprom = new Sponsors("Газпром", 1000000);
         Sponsors tinkof = new Sponsors("Тинькоф", 500000);
@@ -115,11 +115,26 @@ public class Main {
         red.carInfo();
 
         ServiceStation serviceStation = new ServiceStation();
-//        serviceStation.addPassengerCar();
-//        serviceStation.addTruck();
+
+
+        serviceStation.addPassengerCar(black);
+        serviceStation.addPassengerCar(red);
+
+        serviceStation.addTruck(one);
+        serviceStation.addTruck(two);
         serviceStation.service();
+
+        Store store = new Store();
+        store.addPeople();
+        store.printQueues();
+
+        String name = "новый покупатель";
+        store.addBuyer(name);
+        store.removeBuyer();
+
         }
-//task1 Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
+
+//Коллекции Введение Листы Очереди--------------------------------------------------------------------------------
 
 
 //        Flower[] arr = new Flower[4];

@@ -3,12 +3,19 @@ package transport;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class ServiceStation<T extends Transport> {
+public class ServiceStation {
     private Queue<Transport> transports = new ArrayDeque<>();
 
+    public ServiceStation() {
+
+    }
+
+    public Queue<Transport> getTransports() {
+        return transports;
+    }
 
     private void addToQueue(Transport transport) {
-        transports.offer(transport);
+        transports.add(transport);
     }
     public void addPassengerCar(PassengerCar passengerCar){
         addToQueue(passengerCar);
@@ -20,7 +27,7 @@ public class ServiceStation<T extends Transport> {
     public void service() {
         while (!transports.isEmpty()){
         Transport transport = transports.poll();
-            System.out.println("Техобслуживание автомобиля " + transport.getBrand());
+        transport.doCheckCar();
         }
     }
 
