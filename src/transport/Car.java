@@ -37,6 +37,7 @@
 //        }
 //    }
 //
+//
 //    public Car(String color,
 //        String transmission,
 //        String registrationNumber,
@@ -99,6 +100,21 @@
 //
 //    public void changeTires() {
 //        this.seasonTires = !this.seasonTires;
+//    }
+//
+//    @Override
+//    public void pitStop() {
+//
+//    }
+//
+//    @Override
+//    public void bestTimeOfCircle() {
+//
+//    }
+//
+//    @Override
+//    public void maxSpeed() {
+//
 //    }
 //
 //
