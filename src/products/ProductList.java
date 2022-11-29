@@ -6,7 +6,13 @@ import java.util.Set;
 
 public class ProductList {
 
-    private final Set<Product> products = new HashSet<>();
+    private Set<Product> products = new HashSet<>();
+
+    public void printProductList () {
+        for (Product product : products) {
+            System.out.println(product);
+        }
+    }
 
     public void addProduct (Product product) {
         if (product == null) {
@@ -37,5 +43,4 @@ public class ProductList {
             }
         }
     }
-
 }
