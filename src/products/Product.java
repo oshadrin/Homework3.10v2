@@ -12,6 +12,9 @@ public class Product {
 
 
     public Product(String name, double cost, double weight) {
+        if (name == null || name.isBlank()) {
+            throw new  IllegalArgumentException("Не заполнены все поля");
+        }
         this.name = name;
         this.cost = cost;
         this.weight = weight;
