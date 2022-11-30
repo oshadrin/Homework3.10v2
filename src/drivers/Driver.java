@@ -3,6 +3,8 @@ package drivers;
 import transport.Abusers;
 import transport.Transport;
 
+import java.util.Objects;
+
 public class Driver<T extends Transport & Abusers> {
     private String fullName;
     private String license;
@@ -72,5 +74,18 @@ public class Driver<T extends Transport & Abusers> {
     @Override
     public String toString() {
         return getFullName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return fullName.equals(driver.fullName) && Objects.equals(license, driver.license);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName);
     }
 }

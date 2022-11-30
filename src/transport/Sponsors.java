@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public class Sponsors<T extends Transport> {
 
     private final String name;
@@ -26,5 +28,22 @@ public class Sponsors<T extends Transport> {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Sponsors sponsors = (Sponsors<?>) o;
+        return Objects.equals(name, sponsors.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

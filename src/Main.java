@@ -18,7 +18,10 @@ import drivers.Driver;
 import login.Data;
 import transport.*;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
@@ -56,6 +59,20 @@ public class Main {
         passengerCar[1] = red;
         passengerCar[2] = white;
         passengerCar[3] = silver;
+
+        Set<Transport> transports = new HashSet<>();
+        for (int i = 0; i < passengerCar.length; i++) {
+            transports.add(passengerCar[i]);
+        }
+        for (int i = 0; i < bus.length; i++) {
+            transports.add(bus[i]);
+        }
+        for (int i = 0; i < truck.length; i++) {
+            transports.add(truck[i]);
+        }
+        System.out.println("Коллекция с транспортом: " + transports);
+
+
 
         four.pitStop();
         white.bestTimeOfCircle();

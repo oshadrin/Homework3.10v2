@@ -3,7 +3,9 @@ package transport;
 import drivers.Driver;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Transport implements Abusers {
     private String brand;
@@ -19,9 +21,9 @@ public abstract class Transport implements Abusers {
 
     public abstract void refill();
 
-    private final List<Driver<?>> drivers = new ArrayList<>();
-    private final List<Mechanic<?>> mechanics = new ArrayList<>();
-    private final List<Sponsors<?>> sponsors = new ArrayList<>();
+    private final Set<Driver<?>> drivers = new HashSet<>();
+    private final Set<Mechanic<?>> mechanics = new HashSet<>();
+    private final Set<Sponsors<?>> sponsors = new HashSet<>();
 
     public void addMechanic(Mechanic<?> mechanic) {
         mechanics.add(mechanic);
@@ -134,15 +136,15 @@ public abstract class Transport implements Abusers {
         return maxSpeed;
     }
 
-    public List<Driver<?>> getDrivers() {
+    public Set<Driver<?>> getDrivers() {
         return drivers;
     }
 
-    public List<Mechanic<?>> getMechanics() {
+    public Set<Mechanic<?>> getMechanics() {
         return mechanics;
     }
 
-    public List<Sponsors<?>> getSponsors() {
+    public Set<Sponsors<?>> getSponsors() {
         return sponsors;
     }
 
