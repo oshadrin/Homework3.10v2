@@ -27,9 +27,6 @@ public class Value {
 
     @Override
     public String toString() {
-        return "Value{" +
-                "value1=" + value1 +
-                ", value2=" + value2 +
-                '}';
+        return "\n" + value1 + "*" + value2;
     }
 }
