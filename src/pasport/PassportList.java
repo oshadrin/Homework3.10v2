@@ -8,7 +8,10 @@ public class PassportList {
     private final Set<Passport> passportSet = new HashSet<>();
 
     public void addPassport(Passport passport) {
-        this.passportSet.add(passport);
+        if(!passportSet.add(passport)){
+            passportSet.remove(passport);
+            this.passportSet.add(passport);
+        }
     }
 
     public Passport findPassport(int passportNumber) {

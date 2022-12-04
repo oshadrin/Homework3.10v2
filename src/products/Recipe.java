@@ -8,12 +8,15 @@ public class Recipe {
     private final String name;
     private final Set<Product> products;
 
+    double sum;
+
     public Recipe(String name, double sum, Set<Product> products) {
         if (name == null || name.isBlank() || products ==null || products.size() == 0) {
             throw new  IllegalArgumentException("Не заполнены все поля");
         }
         this.name = name;
         this.products = products;
+        this.sum = sum;
     }
 
     public String getName() {
