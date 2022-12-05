@@ -15,6 +15,12 @@ public class Product {
         if (name == null || name.isBlank()) {
             throw new  IllegalArgumentException("Не заполнены все поля");
         }
+        if (cost < 0) {
+            throw new  IllegalArgumentException("Стоимость не может быть меньше нуля");
+        }
+        if (weight <= 0) {
+            throw new  IllegalArgumentException("Вес не может быть меньше нулевым или меньше нуля");
+        }
         this.name = name;
         this.cost = cost;
         this.weight = weight;

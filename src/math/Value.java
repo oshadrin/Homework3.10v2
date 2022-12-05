@@ -17,12 +17,12 @@ public class Value {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Value value = (Value) o;
-        return value1 == value.value2 && value2 == value.value1;
+        return value1 == value.value1 && value2 == value.value2 || value2 == value.value1 && value1 == value.value2;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value1 * value2, value1 + value2);
+        return Objects.hash(value1 * value2);
     }
 
     @Override
