@@ -1,21 +1,21 @@
 package products;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 public class Recipe {
 
     private final String name;
-    private final Set<Product> products;
+    private final Map<Product, Integer> products = new HashMap<>();
 
     double sum;
 
-    public Recipe(String name, double sum, Set<Product> products) {
-        if (name == null || name.isBlank() || products ==null || products.size() == 0) {
+    public Recipe(String name, double sum) {
+        if (name == null || name.isBlank()) {
             throw new  IllegalArgumentException("Не заполнены все поля");
         }
         this.name = name;
-        this.products = products;
         this.sum = sum;
     }
 
@@ -23,14 +23,21 @@ public class Recipe {
         return name;
     }
 
-    public Set<Product> getProducts() {
-        return products;
+    public void addProduct(Product product, int sum) {
+        if(sum <= 0) {
+            sum = 1;
+        }
+        if (this.products.containsKey(product)) {
+            this.products.put(product, this.products.get(product) + sum);
+        } else {
+            this.products.put(product, sum);
+        }
     }
 
     public double recipeCost() {
         double sum = 0;
-        for (Product product : products) {
-            sum += product.getCost();
+        for (Map.Entry<Product, Integer> product : this.products.entrySet()) {
+            sum += product.getKey().getCost() * product.getValue() ;
         }
         return sum;
     }

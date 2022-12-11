@@ -24,16 +24,6 @@ public class ProductList {
         this.products.add(product);
     }
 
-    public void checkBuy(String name) {
-        for (Product product : this.products) {
-            if (product.getName().equals(name)) {
-                product.setCheckBought();
-                break;
-            }
-            
-        }
-    }
-
     public void removeProduct (String name) {
         Iterator<Product> productIterator = this.products.iterator();
         while (productIterator.hasNext()) {

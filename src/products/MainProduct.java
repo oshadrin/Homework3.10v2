@@ -8,9 +8,9 @@ import java.util.Set;
 public class MainProduct {
     public static void main(String[] args) {
 
-        Product banana = new Product("Бананы", 120, 5);
-        Product apple = new Product("Яблоки", 38, 6);
-        Product tomato = new Product("Помидоры", 240, 2);
+        Product banana = new Product("Бананы", 120);
+        Product apple = new Product("Яблоки", 38);
+        Product tomato = new Product("Помидоры", 240);
 
         ProductList productList = new ProductList();
 

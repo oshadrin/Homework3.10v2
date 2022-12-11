@@ -6,24 +6,17 @@ public class Product {
 
     private String name;
     private double cost;
-    private double weight;
-
-    private boolean checkBought;
 
 
-    public Product(String name, double cost, double weight) {
+    public Product(String name, double cost) {
         if (name == null || name.isBlank()) {
             throw new  IllegalArgumentException("Не заполнены все поля");
         }
         if (cost < 0) {
             throw new  IllegalArgumentException("Стоимость не может быть меньше нуля");
         }
-        if (weight <= 0) {
-            throw new  IllegalArgumentException("Вес не может быть меньше нулевым или меньше нуля");
-        }
         this.name = name;
         this.cost = cost;
-        this.weight = weight;
     }
 
 
@@ -35,32 +28,12 @@ public class Product {
         return cost;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
     public void setCost(double cost) {
         this.cost = cost;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public boolean isCheckBought() {
-        return checkBought;
-    }
-
-    public void setCheckBought() {
-        this.checkBought = true;
-    }
-
-    public boolean isChecked() {
-        return checkBought;
     }
 
     @Override
@@ -82,6 +55,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Продукт: " + "название = " + name + ", цена= " + cost + ", вес= " + weight;
+        return "Продукт: " + "название = " + name + ", цена= " + cost;
     }
 }
